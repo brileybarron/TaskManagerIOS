@@ -14,14 +14,23 @@ class Task {
     var description: String
     var completed: complete
     var priority: Priority
+    var date: Date?
     
     init (name: String, description: String, completed: complete, priority: Priority) {
         self.name = name
         self.description = description
         self.completed = completed
         self.priority = priority
+        switch self.completed {
+        case .complete:
+            self.date = nil
+        case .notComplete(due: let dueDate):
+            self.date = dueDate
+        }
     }
 }
+
+
 
 enum Priority {
     case high
@@ -51,5 +60,12 @@ enum complete {
         case . complete:
             return true
         }
+    }
+}
+
+
+extension Task: Equatable {
+    static func == (lhs: Task, rhs: Task) -> Bool {
+        return lhs.name == rhs.name && lhs.description == rhs.description &&  lhs.priority == rhs.priority && lhs.completed.isComplete == rhs.completed.isComplete
     }
 }

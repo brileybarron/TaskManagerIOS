@@ -23,5 +23,16 @@ class TaskCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setup () {
+        switch task.priority {
+        case .high:
+            self.backgroundColor = UIColor(red: 255/255, green: 0, blue: 0, alpha: 1)
+        case .medium:
+            self.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 0, alpha: 1)
+        case .low:
+            self.backgroundColor = UIColor(red: 0, green: 255/255, blue: 0, alpha: 1)
+        }
+    }
 
 }

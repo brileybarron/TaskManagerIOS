@@ -30,3 +30,20 @@ class CompletedTaskVC: UIViewController {
     */
 
 }
+
+extension CompletedTaskVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Library.library.completed.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "completedTaskCell") as! TaskCell
+        
+        cell.task = Library.library.completed[indexPath.row]
+        cell.nameLabel.text = Library.library.completed[indexPath.row].name
+        cell.setup()
+        return cell
+    }
+    
+    
+}

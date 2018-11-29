@@ -36,7 +36,38 @@ class AllTasksVC: UIViewController {
             destination.task = chosenCell!.task
         }
     }
+    
+    func complete(indexPath: IndexPath) {
+        let task = Library.library.library[indexPath.row]
+        task.completed = .complete
+        (allTasksTableView.cellForRow(at: indexPath) as! TaskCell).setup()
+    }
 
+    
+    func incomplete(indexPath: IndexPath) {
+        let task = Library.library.library[indexPath.row]
+        if let date = task.date {
+            task.completed = .notComplete(due: date)
+            (allTasksTableView.cellForRow(at: indexPath) as! TaskCell).setup()
+        }
+    }
+    
+    
+//    func checkOut(at indexPath: IndexPath) {//gives the check
+//        let game = self.library.games[indexPath.row]
+//
+//        let calendar = Calendar(identifier: .gregorian)
+//        let dueDate = calendar.date(byAdding: .day, value: 7, to: Date())!
+//
+//        game.avaliability = .checkedOut(dueDate: dueDate)
+//        (tableView.cellForRow(at: indexPath) as! LibraryCell).setup()
+//    }
+//
+//    func checkIn(at indexPath: IndexPath) {
+//        let game = self.library.games[indexPath.row]
+//        game.avaliability = .checkedIn
+//        (tableView.cellForRow(at: indexPath) as! LibraryCell).setup()
+//    }
     /*
     // MARK: - Navigation
 
@@ -62,6 +93,7 @@ extension AllTasksVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskCell
         cell.nameLabel.text = Library.library.library[indexPath.row].name
         cell.task = Library.library.library[indexPath.row]
+        cell.setup()
         return cell
     }
     
@@ -70,6 +102,40 @@ extension AllTasksVC: UITableViewDelegate, UITableViewDataSource {
         
         performSegue(withIdentifier: "toDetails", sender: tableView.cellForRow(at: indexPath))
         
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //adds a new choice when the cell is swiped
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { _, indexPath in
+            Library.library.library.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
+        }
+        
+        let task = Library.library.library[indexPath.row]
+        
+        // If the task is complete, we create and return the completed action.
+        // If the task is not complete, we create and return the incomplete action.
+        
+        switch task.completed {
+        case .complete:
+            let checkOutAction = UITableViewRowAction(style: .normal, title: "Not Complete") { _, indexPath in
+                
+                self.incomplete(indexPath: indexPath)
+                tableView.reloadData()
+            }
+            
+            return [deleteAction, checkOutAction]
+            
+        case .notComplete(due: _):
+            let checkInAction = UITableViewRowAction(style: .normal, title: "Complete") { _, indexPath in
+                self.complete(indexPath: indexPath)
+                tableView.reloadData()
+            }
+            
+            return [deleteAction, checkInAction]
+            
+        }
     }
     
     
