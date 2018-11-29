@@ -287,36 +287,45 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DgD-kI-sHx">
-                                <rect key="frame" x="16" y="136" width="343" height="395"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bvW-0n-3um">
+                                <rect key="frame" x="0.0" y="116" width="375" height="507"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKT-D8-wCR">
-                                        <rect key="frame" x="149" y="0.0" width="45" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-FU-ybI">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62d-en-Y5T">
-                                        <rect key="frame" x="127.5" y="36.5" width="88" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNV-Pr-DAR">
+                                        <rect key="frame" x="0.0" y="111.5" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EXg-as-aqd">
-                                        <rect key="frame" x="51.5" y="73" width="240" height="249"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hw2-ey-mhn">
+                                        <rect key="frame" x="0.0" y="174.5" width="375" height="70"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="LQs-8T-Tjz"/>
+                                        </constraints>
+                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJI-7D-9f6">
-                                        <rect key="frame" x="144.5" y="338" width="54.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3J-4V-UvS">
+                                        <rect key="frame" x="0.0" y="287" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ieh-LC-hqE">
-                                        <rect key="frame" x="129.5" y="374.5" width="84.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2F-Xh-CvO">
+                                        <rect key="frame" x="0.0" y="375" width="375" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bun-jw-wOM">
+                                        <rect key="frame" x="0.0" y="439" width="375" height="68"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -326,23 +335,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Lj3-jM-VkW" firstAttribute="centerX" secondItem="pO4-q8-dA4" secondAttribute="centerX" id="3w8-p9-qF7"/>
-                            <constraint firstItem="MmO-jh-H6q" firstAttribute="trailing" secondItem="DgD-kI-sHx" secondAttribute="trailing" constant="16" id="4Lf-lO-WMa"/>
-                            <constraint firstItem="DgD-kI-sHx" firstAttribute="centerY" secondItem="pO4-q8-dA4" secondAttribute="centerY" id="8Zm-SJ-9MX"/>
-                            <constraint firstItem="Lj3-jM-VkW" firstAttribute="leading" secondItem="MmO-jh-H6q" secondAttribute="leading" id="CKr-ao-mVG"/>
-                            <constraint firstItem="DgD-kI-sHx" firstAttribute="top" secondItem="MmO-jh-H6q" secondAttribute="top" constant="20" id="JC6-dt-Rgb"/>
-                            <constraint firstItem="Lj3-jM-VkW" firstAttribute="trailing" secondItem="MmO-jh-H6q" secondAttribute="trailing" id="PfZ-Rz-qKp"/>
-                            <constraint firstItem="Lj3-jM-VkW" firstAttribute="bottom" secondItem="MmO-jh-H6q" secondAttribute="bottom" id="bMA-jI-WgX"/>
-                            <constraint firstItem="DgD-kI-sHx" firstAttribute="leading" secondItem="MmO-jh-H6q" secondAttribute="leading" constant="16" id="hTR-md-iiE"/>
-                            <constraint firstItem="DgD-kI-sHx" firstAttribute="centerX" secondItem="pO4-q8-dA4" secondAttribute="centerX" id="qcn-gB-4to"/>
+                            <constraint firstItem="Lj3-jM-VkW" firstAttribute="trailing" secondItem="MmO-jh-H6q" secondAttribute="trailing" id="AC1-Hk-4Iz"/>
+                            <constraint firstItem="bvW-0n-3um" firstAttribute="leading" secondItem="MmO-jh-H6q" secondAttribute="leading" id="EGq-DU-lOr"/>
+                            <constraint firstItem="Lj3-jM-VkW" firstAttribute="leading" secondItem="MmO-jh-H6q" secondAttribute="leading" id="bdw-4N-lZA"/>
+                            <constraint firstItem="bvW-0n-3um" firstAttribute="centerX" secondItem="pO4-q8-dA4" secondAttribute="centerX" id="mRV-rt-73t"/>
+                            <constraint firstItem="bvW-0n-3um" firstAttribute="top" secondItem="MmO-jh-H6q" secondAttribute="top" id="q30-Iz-6yD"/>
+                            <constraint firstItem="Lj3-jM-VkW" firstAttribute="bottom" secondItem="MmO-jh-H6q" secondAttribute="bottom" id="ruu-h5-nBx"/>
+                            <constraint firstItem="Lj3-jM-VkW" firstAttribute="top" secondItem="bvW-0n-3um" secondAttribute="bottom" id="xjh-Pn-mkO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MmO-jh-H6q"/>
                     </view>
                     <connections>
-                        <outlet property="completedLabel" destination="Ieh-LC-hqE" id="Yth-KY-2S9"/>
-                        <outlet property="descriptionText" destination="EXg-as-aqd" id="781-uq-iKK"/>
-                        <outlet property="nameLabel" destination="qKT-D8-wCR" id="g5V-Wn-ipo"/>
-                        <outlet property="priorityLabel" destination="XJI-7D-9f6" id="B1W-fw-PdV"/>
+                        <outlet property="completedLabel" destination="W2F-Xh-CvO" id="xbo-32-JLW"/>
+                        <outlet property="descriptionText" destination="Hw2-ey-mhn" id="ReV-iK-9ry"/>
+                        <outlet property="nameLabel" destination="LNV-Pr-DAR" id="pOe-px-qPO"/>
+                        <outlet property="priorityLabel" destination="A3J-4V-UvS" id="9O7-zr-yUf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYg-r5-4nz" userLabel="First Responder" sceneMemberID="firstResponder"/>

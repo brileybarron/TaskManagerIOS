@@ -20,6 +20,28 @@ class DetailsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        nameLabel.text = task.name
+        descriptionText.text = task.description
+        switch task.priority {
+        case .low:
+            priorityLabel.text = "low"
+        case .medium:
+            priorityLabel.text = "medium"
+        case .high:
+            priorityLabel.text = "high"
+        }
+        
+        switch task.completed {
+        case .complete:
+            completedLabel.text = "complete"
+        case .notComplete(due: let dueDate):
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+            completedLabel.text = "Not Complete: \(dateFormatter.string(from: dueDate))"
+            print(dueDate)
+            
+        }
+    
     }
     
 

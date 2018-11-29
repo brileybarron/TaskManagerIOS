@@ -33,7 +33,7 @@ class AllTasksVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is DetailsVC {
             let destination = segue.destination as! DetailsVC
-            destination.task = chosenCell.task
+            destination.task = chosenCell!.task
         }
     }
 
