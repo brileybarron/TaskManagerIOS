@@ -18,7 +18,7 @@ class EditTaskVC: UIViewController {
     
     
     var task = Task(name: "a", description: "b", completed: .complete, priority: .high)
-    override func viewDidLoad() {
+    override func viewDidLoad() {//when the view loads in then set all; the labels to values based on the task chosen in the previous screen
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -33,7 +33,7 @@ class EditTaskVC: UIViewController {
         case .high:
             prioritySegmentedController.selectedSegmentIndex = 2
         }
-        switch task.completed {
+        switch task.completed {//this will determine if the task is completed or not.  If it is then the date picker is hidden.  if the task is not complete then the date picker's starting date is the due date
         case .complete:
             datePicker.isHidden = true
             dateLabel.isHidden = true
@@ -42,7 +42,7 @@ class EditTaskVC: UIViewController {
         }
     }
     
-    @IBAction func fixButtonTapped(_ sender: Any) {
+    @IBAction func fixButtonTapped(_ sender: Any) {//this button will delete the old task and replace it with a new one
         var count = 0
         
         guard let title = nameTextField.text, title != "" else {
@@ -77,21 +77,5 @@ class EditTaskVC: UIViewController {
             }
             count += 1
         }
-
-//        Library.library.library.append(Task(name: title, description: descriptionTextView.text, completed: taskCompleted, priority: priority))
-//        
-//        performSegue(withIdentifier: "toAll", sender: self)
-        
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

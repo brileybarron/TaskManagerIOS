@@ -15,8 +15,6 @@ class AddTaskVC: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    var tasks = Library.library.library
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,17 +23,17 @@ class AddTaskVC: UIViewController {
 
     }
     
-    @IBAction func addButtonTapped(_ sender: Any) {
+    @IBAction func addButtonTapped(_ sender: Any) {//if the add button is tapped then check to see if the name is there
         guard let title = nameTextField.text, title != "" else {
             return
         }
         
-        let dateFormatter = DateFormatter()
+        let dateFormatter = DateFormatter()//then format the date in the date picker
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
         let dueDate = datePicker.date
-        let priorityIndex = prioritySegmentedController.selectedSegmentIndex
+        let priorityIndex = prioritySegmentedController.selectedSegmentIndex//find the index of the segmented controller
         let priority: Priority
-        switch priorityIndex {
+        switch priorityIndex {//then switch on the priority
         case 0:
             priority = .low
         case 1:
@@ -44,23 +42,11 @@ class AddTaskVC: UIViewController {
             priority = .high
         }
         
-        Library.library.library.append(Task(name: title, description: descriptionTextView.text, completed: .notComplete(due: dueDate), priority: priority))
+        Library.library.library.append(Task(name: title, description: descriptionTextView.text, completed: .notComplete(due: dueDate), priority: priority))//create the task
         
         print(Library.library.library)
         
-        performSegue(withIdentifier: "unwindToAllFromAdd", sender: self)
+        performSegue(withIdentifier: "unwindToAllFromAdd", sender: self)//then unwind the segue back to view all the tasks
     
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

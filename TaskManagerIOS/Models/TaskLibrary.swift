@@ -9,11 +9,13 @@
 import Foundation
 
 class Library {
-    static var library = Library()
+    static var library = Library()//singleton
     
-    var library = [Task]()
+    //stores three arrays
     
-    var completed: [Task] {
+    var library = [Task]() //one with all the tasks
+    
+    var completed: [Task] {//one for only completed tasks
         var tempArray = [Task]()
         for task in library {
             if task.completed.isComplete {
@@ -23,7 +25,7 @@ class Library {
         return tempArray
     }
     
-    var notComplete: [Task]{
+    var notComplete: [Task]{//one for only incomplete tasks
         var tempArray = [Task]()
         for task in library {
             if !task.completed.isComplete {

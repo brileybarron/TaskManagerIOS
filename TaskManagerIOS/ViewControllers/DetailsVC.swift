@@ -16,7 +16,7 @@ class DetailsVC: UIViewController {
     
     var task = Task(name: "a", description: "b", completed: .complete, priority: .low)
     
-    override func viewDidLoad() {
+    override func viewDidLoad() {//sets all the labels to the appropriate values
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -31,7 +31,7 @@ class DetailsVC: UIViewController {
             priorityLabel.text = "high"
         }
         
-        switch task.completed {
+        switch task.completed {//if the task is completesd then just say it is completed.  but if the task isn't complete then it also displays the dueDate
         case .complete:
             completedLabel.text = "complete"
         case .notComplete(due: let dueDate):
@@ -45,7 +45,7 @@ class DetailsVC: UIViewController {
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {//if they tap the edit button the send the task to the edit screen
         if let destinationVC = segue.destination as? EditTaskVC {
             destinationVC.task = self.task
         }
