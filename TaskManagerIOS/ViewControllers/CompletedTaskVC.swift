@@ -10,28 +10,13 @@ import UIKit
 
 class CompletedTaskVC: UIViewController {
     @IBOutlet weak var completedTasksTableView: UITableView!
-    @IBOutlet weak var completedSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-extension CompletedTaskVC: UITableViewDelegate, UITableViewDataSource {
+extension CompletedTaskVC: UITableViewDelegate, UITableViewDataSource {//gives a table view with only the completed tasks
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Library.library.completed.count
     }
@@ -42,6 +27,7 @@ extension CompletedTaskVC: UITableViewDelegate, UITableViewDataSource {
         cell.task = Library.library.completed[indexPath.row]
         cell.nameLabel.text = Library.library.completed[indexPath.row].name
         cell.setup()
+        cell.isUserInteractionEnabled = false
         return cell
     }
     
